@@ -23,9 +23,10 @@ from prompts import (
 # Configuration
 CONFIG = {
     'SECRET_KEY': os.urandom(24),
-    'REDIS_HOST': 'localhost',
-    'REDIS_PORT': 6379,
-    'REDIS_DB': 0,
+    'REDIS_HOST': os.environ.get('REDIS_HOST', 'localhost'),
+    'REDIS_PORT': int(os.environ.get('REDIS_PORT', 6379)),
+    'REDIS_PASSWORD': os.environ.get('REDIS_PASSWORD'),
+    'REDIS_DB': int(os.environ.get('REDIS_DB', 0)),
     'REDIS_POOL_SIZE': 10,  # Add pool size configuration
     'LOG_FILE': 'app.log',
     'LOG_FORMAT': '%(asctime)s - %(message)s',
@@ -66,12 +67,18 @@ def setup_app():
     app.logger = setup_logging(app.config)
     
     # Redis connection pooling setup
-    app.redis_pool = ConnectionPool(
-        host=app.config['REDIS_HOST'],
-        port=app.config['REDIS_PORT'],
-        db=app.config['REDIS_DB'],
-        max_connections=app.config['REDIS_POOL_SIZE']
-    )
+    redis_config = {
+        'host': app.config['REDIS_HOST'],
+        'port': app.config['REDIS_PORT'],
+        'db': app.config['REDIS_DB'],
+        'max_connections': app.config['REDIS_POOL_SIZE']
+    }
+
+    # Add password if provided
+    if app.config['REDIS_PASSWORD']:
+        redis_config['password'] = app.config['REDIS_PASSWORD']
+
+    app.redis_pool = ConnectionPool(**redis_config)
     
     # Create Redis client using the connection pool
     app.redis_client = redis.Redis(connection_pool=app.redis_pool)

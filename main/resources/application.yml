@@ -1,0 +1,93 @@
+server:
+  port: 84
+  servlet:
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    # Tomcat启动初始化的线程数，默认值25
+#    accept-count: 500
+#    threads:
+#      max: 2000
+#      min-spare: 2000
+#    max-connections: 181920
+# spring
+spring:
+  session:
+    timeout: 3600
+    redis:
+      namespace: newbee_mall
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    encoding: UTF-8
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8 # 中国时区
+    default-property-inclusion: non_null
+  profiles:
+    active: dev
+  task:
+    execution:
+      pool:
+        core-size: 10
+        max-size: 20
+        queue-capacity: 5
+      thread-name-prefix: newbee-task
+  servlet:
+    multipart:
+      max-file-size: 100MB
+  threads:
+    virtual:
+      enabled: true
+
+# mybatis plus
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted  #全局逻辑删除字段值 3.3.0开始支持，详情看下面。
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  type-aliases-package: com.wayn.**.entity
+
+# wayn配置
+newbee-mall:
+  serverUrl: ${WAYN_SERVER_URL:localhost} # 支付回调地址，项目部署到公网环境时，必须是外网地址
+  viewModel: ${WAYN_VIEW_MODEL:false} # 演示模式true只能查看，不能修改
+  viewModelTip: ${WAYN_VIEW_MODEL_TIP:请下载项目源代码，演示模式后台无法修改！} # 演示模式true只能查看，不能修改
+  uploadDir: ${WAYN_UPLOAD_DIR:D:/upload}
+
+# alipay
+alipay:
+  app-id:
+  rsa-private-key:
+  alipay-public_key:
+  gateway: https://openapi.alipaydev.com/gateway.do
+  charset: UTF-8
+  format: json
+  log_path: E://log
+  signtype: RSA2
+
+
+# 滑块验证码配置， 详细请看 cloud.tianai.captcha.autoconfiguration.SliderCaptchaProperties 类
+captcha:
+  prefix: newbee_mall:captcha:slider
+  expire:
+    default: 10000
+    # 文字点选验证码 过期时间设置大一点
+    WORD_IMAGE_CLICK: 60000
+  cache:
+    enabled: true
+    cache-size: 20
+  secondary:
+    enabled: false

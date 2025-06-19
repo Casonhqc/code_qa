@@ -19,9 +19,9 @@ fi
 echo "Processing the directory at $folder_path..."
 
 # Run scripts with the folder_path
-python preprocessing.py "$folder_path"
-python create_tables.py "$folder_path"
+python3 preprocessing.py "$folder_path"
+python3 create_tables.py "$folder_path"
 
 echo "Processing complete."
 
-echo "Please run python app.py <absolute_path_to_folder> to run the server"
+echo "Please run python3 app.py <absolute_path_to_folder> to run the server"
