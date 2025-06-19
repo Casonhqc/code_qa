@@ -1,18 +1,19 @@
 
 
 
-**Update 14th November 2024**: Check the branch [`feature/optimization`](https://github.com/sankalp1999/code_qa/tree/feature/optimization) which runs 2.5x faster than this branch's code (what you saw in the demo video).
-The optimized branch achieves 2.5x faster performance (10-20 seconds range) through two key improvements:
+**Current Branch: feature/retrieval-only** - This branch focuses exclusively on code retrieval functionality without LLM-generated responses. It uses the specified OpenAI-compatible API configuration and returns only the retrieved code context.
 
-1. **Optimized Token Management** - Reduced HYDE max tokens to 400 and HYDE-v2 to 768. Keeps hallucinated output concise while maintaining relevance. Result: ~5-10 seconds saved
+**Key Features of this branch:**
+1. **Retrieval-Only Mode** - No LLM-generated answers, only code context retrieval
+2. **Custom OpenAI API Configuration** - Uses specified base URL and API key
+3. **HYDE Query Enhancement** - Still uses HYDE and HYDE-v2 for better retrieval
+4. **Reranking Support** - Optional reranking with ColBERT for improved relevance
 
-2. **Enhanced Context Processing** - Implemented SambaNova Llama 3.1 8b (1000 tok/s) for context filtering and changed gpt4o -> SambaNova Llama 3.1-70b (400 tok/s) for chat responses. Improved context relevance and processing speed. Result: ~20 seconds saved
+**Previous Updates**: Check the branch [`feature/optimization`](https://github.com/sankalp1999/code_qa/tree/feature/optimization) which runs 2.5x faster than the main branch with full LLM response generation.
 
-Worst case scenario codeQA works under 20 seconds as compared to the previous 40 seconds.
+## What is CodeQA - Retrieval Only?
 
-## What is CodeQA?
-
-A powerful code search and query system that lets you explore codebases using natural language. Ask questions about your code and get contextual answers powered by LanceDB, OpenAI gpt4o-mini/gpt4o and Answerdotai's colbert-small-v1 reranker. Supports Python, Rust, JavaScript and Java with a clean, minimal UI.
+A focused code retrieval system that lets you explore codebases using natural language queries. This version specializes in retrieving relevant code context without generating LLM responses. Powered by LanceDB, OpenAI-compatible APIs for query enhancement, and Answerdotai's colbert-small-v1 reranker. Supports Python, Rust, JavaScript and Java with a clean, minimal UI.
 
 Blog Links:
 
@@ -21,12 +22,12 @@ Blog Links:
 [An attempt to build cursor's @codebase feature - RAG on codebases - part 2](https://blog.lancedb.com/building-rag-on-codebases-part-2/)
 
 
-CodeQA helps you understand codebases by:
+CodeQA - Retrieval Only helps you explore codebases by:
 - Extracting code structure and metadata using tree-sitter AST parsing
 - Indexing the code chunks using OpenAI/Jina embeddings and storing them in LanceDB
 - Enabling natural language searches across the codebase by using @codebase in queries
-- Providing context-aware answers with references
-- Supporting interactive chat-based code exploration
+- Retrieving relevant code context with file paths and references
+- Supporting interactive retrieval-based code exploration
 
 
 ## Prerequisites
@@ -69,12 +70,15 @@ redis-server
 ```
 
 ## Configuration
-You only need to set the OpenAI API key. Jina API key is optional, if you want to use Jina embeddings instead of OpenAI.
-
-Create a .env file and add the following:
+This branch uses a custom OpenAI-compatible API configuration. The .env file is already configured with the specified settings:
 
 ```
-OPENAI_API_KEY="your-openai-api-key"
+OPENAI_BASE_URL=https://api.oaipro.com/v1
+OPENAI_API_KEY=sk-GCYpSq4rQMnm8xiScoxtRecBSYgZqaQANF2DTLeRZtac2CNUdHaY
+```
+
+Optional: Add Jina API key if you want to use Jina embeddings instead of OpenAI:
+```
 JINA_API_KEY="your-jina-api-key"
 ```
 ## Building the Codebase Index
@@ -106,10 +110,12 @@ For example, to analyze a JavaScript project located in `/Users/sankalp/Document
 python app.py /Users/sankalp/Documents/code2prompt/twitter-circle
 ```
 
-Once the server is running, open a web browser and navigate to `http://localhost:5001` to access the code search and query interface.
+Once the server is running, open a web browser and navigate to `http://localhost:5001` to access the code retrieval interface.
 
-Use @codebase keyword in queries to fetch context via embeddings 
-Enable re-ranking option to get more relevant results
+**Usage Instructions:**
+- Use @codebase keyword in queries to fetch relevant code context via embeddings
+- Enable re-ranking option to get more relevant results
+- This version returns only the retrieved code context, not generated responses
 
 
 ## Technologies Used

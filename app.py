@@ -17,8 +17,7 @@ load_dotenv()
 
 from prompts import (
     HYDE_SYSTEM_PROMPT,
-    HYDE_V2_SYSTEM_PROMPT,
-    CHAT_SYSTEM_PROMPT  
+    HYDE_V2_SYSTEM_PROMPT
 )
 
 # Configuration
@@ -88,7 +87,10 @@ def setup_app():
 app = setup_app()
 
 # OpenAI client setup
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+    base_url=os.environ.get("OPENAI_BASE_URL")
+)
 
 
 # Initialize the reranker
@@ -128,21 +130,7 @@ def openai_hyde_v2(query, temp_context, hyde_query):
     return chat_completion.choices[0].message.content
 
 
-def openai_chat(query, context):
-    chat_completion = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {
-                "role": "system",
-                "content": CHAT_SYSTEM_PROMPT.format(context=context)
-            },
-            {
-                "role": "user",
-                "content": query,
-            }
-        ]
-    )
-    return chat_completion.choices[0].message.content
+
 
 def process_input(input_text):
     processed_text = input_text.replace('\n', ' ').replace('\t', ' ')
@@ -205,23 +193,25 @@ def home():
                 context = generate_context(query, rerank)
                 app.logger.info("Generated context for query with @codebase.")
                 app.redis_client.set(f"user:{user_id}:chat_context", context)
+
+                # Store the conversation history with retrieved context
+                redis_key = f"user:{user_id}:responses"
+                combined_response = {'query': query, 'response': context}
+                app.redis_client.rpush(redis_key, json.dumps(combined_response))
+
+                # Return the retrieved context as JSON
+                return jsonify({'response': context})
             else:
-                context = app.redis_client.get(f"user:{user_id}:chat_context")
-                if context is None:
-                    context = ""
-                else:
-                    context = context.decode()
+                # For queries without @codebase, return a message asking for context
+                response = "Please use '@codebase' in your query to retrieve relevant code context."
 
-            # Now, apply reranking during the chat response if needed
-            response = openai_chat(query, context[:12000])  # Adjust as needed
+                # Store the conversation history
+                redis_key = f"user:{user_id}:responses"
+                combined_response = {'query': query, 'response': response}
+                app.redis_client.rpush(redis_key, json.dumps(combined_response))
 
-            # Store the conversation history
-            redis_key = f"user:{user_id}:responses"
-            combined_response = {'query': query, 'response': response}
-            app.redis_client.rpush(redis_key, json.dumps(combined_response))
-
-            # Return the bot's response as JSON
-            return jsonify({'response': response})
+                # Return the message as JSON
+                return jsonify({'response': response})
 
     # For GET requests and non-AJAX POST requests, render the template as before
     # Retrieve the conversation history to display

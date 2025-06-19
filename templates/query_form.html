@@ -220,7 +220,7 @@
     </style>
 </head>
 <body>
-    <h1>CodeQA</h1>
+    <h1>CodeQA - Retrieval Only</h1>
     <div class="container">
         <div class="chat-container" id="chat-container">
             {% if results %}
@@ -234,13 +234,13 @@
                 {% endfor %}
             {% else %}
                 <div class="message bot-message">
-                    <p>Welcome to CodeQA! How can I assist you today?</p>
+                    <p>Welcome to CodeQA - Retrieval Only! Use '@codebase' in your query to retrieve relevant code context from the codebase.</p>
                 </div>
             {% endif %}
         </div>
         <div class="input-area">
             <form id="chat-form">
-                <input type="text" id="query" name="query" placeholder="Type your message..." required>
+                <input type="text" id="query" name="query" placeholder="Use @codebase to retrieve code context..." required>
                 <input type="checkbox" id="rerank" name="rerank" value="yes">
                 <label for="rerank">Use Reranking</label>
                 <button type="submit" name="action" value="Chat">
