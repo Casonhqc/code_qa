@@ -368,3 +368,100 @@ The Flask application implements a basic user login feature using SQLAlchemy to 
 19-Jun-25 19:56:48 - 📊 Final context length: 18146 characters
 19-Jun-25 19:56:48 - 💾 Context cached for user 0109ee4f-690a-4995-aa75-96ffd0845af4
 19-Jun-25 19:56:48 - ✅ Query processing completed successfully
+19-Jun-25 20:06:58 - 🚀 Processing codebase query: '@codebase 这个项目的登录功能是如何实现的' -> '这个项目的登录功能是如何实现的'
+19-Jun-25 20:06:58 - 👤 User ID: 258c7b0c-addd-4470-a6c5-3218f8632076
+19-Jun-25 20:06:58 - 🔄 Reranking: False
+19-Jun-25 20:06:58 - 🔍 Starting context generation for query: '这个项目的登录功能是如何实现的' (rerank=False)
+19-Jun-25 20:06:58 - 🔧 Enhanced query: '这个项目的登录功能是如何实现的 login'
+19-Jun-25 20:06:58 - 📝 Step 1: Generating HYDE query...
+19-Jun-25 20:07:02 - ✅ HYDE query generated: '```python
+class AuthService:
+    def __init__(self, user_db):
+        self.user_db = user_db
+
+    def login(self, username, password):
+        user = self.user_db.get_user(username)
+        if user and user.verify_password(password):
+            return self.generate_token(user)
+        else:
+            raise Exception("Invalid username or password")
+
+    def generate_token(self, user):
+        # Implementation for generating JWT token
+        import jwt
+        token = jwt.encode({"user_id": user.id}, 'secret', algorithm='HS256')
+        return token
+```'
+19-Jun-25 20:07:02 - 🔍 Step 2: Performing initial search...
+19-Jun-25 20:07:07 - 📊 Initial search results: 10 methods, 10 classes
+19-Jun-25 20:07:07 - 📝 Step 3: Generating enhanced HYDE v2 query...
+19-Jun-25 20:07:14 - ✅ HYDE v2 query generated: '```python
+class AuthService:
+    def __init__(self, user_db):
+        self.user_db = user_db
+
+    def login(self, username, password, verify_code=None, session=None):
+        if not verify_code or not self.verify_captcha(session, verify_code):
+            raise Exception("Invalid or missing verification code")
+        
+        user = self.user_db.get_user(username)
+        if user and user.verify_password(password):
+            session['loginUser'] = user.nickname
+            session['loginUserId'] = user.id
+            return self.generate_token(user)
+        else:
+            raise Exception("Invalid username or password")
+
+    def verify_captcha(self, session, verify_code):
+        # Assuming the code to check verification from session
+        captcha_code = session.get('captcha_code')
+        return captcha_code == verify_code
+
+    def generate_token(self, user):
+        import jwt
+        token = jwt.encode({"user_id": user.id}, 'secret', algorithm='HS256')
+        return token
+```'
+19-Jun-25 20:07:14 - 🔍 Step 4: Performing final search with enhanced query...
+19-Jun-25 20:07:18 - 📊 Final search results: 10 methods, 10 classes
+19-Jun-25 20:07:18 - ✅ Context generation completed in 20.49 seconds
+19-Jun-25 20:07:18 - 📊 Final context length: 13633 characters
+19-Jun-25 20:07:18 - 💾 Context cached for user 258c7b0c-addd-4470-a6c5-3218f8632076
+19-Jun-25 20:07:18 - ✅ Query processing completed successfully
+19-Jun-25 20:13:14 - 🚀 Initializing Dify API...
+19-Jun-25 20:13:14 - ✅ Database tables loaded
+19-Jun-25 20:13:16 - ✅ Reranker initialized
+19-Jun-25 20:13:16 - ✅ OpenAI client initialized
+19-Jun-25 20:13:16 - 🎉 Dify API initialization completed
+19-Jun-25 20:13:54 - 📝 Dify API request: knowledge_id=codeqa-java-mall, query='用户登录功能', top_k=3, threshold=0.5
+19-Jun-25 20:13:54 - 🔍 Dify API retrieval for query: '用户登录功能' (top_k=3, threshold=0.5)
+19-Jun-25 20:13:54 - 🔧 Enhanced query: '用户登录功能 user login'
+19-Jun-25 20:14:00 - ✅ HYDE query generated
+19-Jun-25 20:14:10 - ✅ HYDE v2 query generated
+19-Jun-25 20:14:15 - ✅ Reranking applied
+19-Jun-25 20:14:18 - ✅ Dify retrieval completed in 24.12s, returned 3 results
+19-Jun-25 20:14:18 - ✅ Dify API response: 3 records returned
+19-Jun-25 20:14:18 - 📝 Dify API request: knowledge_id=codeqa-java-mall, query='商品管理', top_k=5, threshold=0.4
+19-Jun-25 20:14:18 - 🔍 Dify API retrieval for query: '商品管理' (top_k=5, threshold=0.4)
+19-Jun-25 20:14:18 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 20:14:25 - ✅ HYDE query generated
+19-Jun-25 20:14:35 - ✅ HYDE v2 query generated
+19-Jun-25 20:14:40 - ✅ Reranking applied
+19-Jun-25 20:14:41 - ✅ Dify retrieval completed in 23.41s, returned 5 results
+19-Jun-25 20:14:41 - ✅ Dify API response: 5 records returned
+19-Jun-25 20:14:41 - 📝 Dify API request: knowledge_id=codeqa-java-mall, query='订单处理', top_k=2, threshold=0.6
+19-Jun-25 20:14:41 - 🔍 Dify API retrieval for query: '订单处理' (top_k=2, threshold=0.6)
+19-Jun-25 20:14:41 - 🔧 Enhanced query: '订单处理 order'
+19-Jun-25 20:14:45 - ✅ HYDE query generated
+19-Jun-25 20:14:53 - ✅ HYDE v2 query generated
+19-Jun-25 20:14:58 - ✅ Reranking applied
+19-Jun-25 20:14:59 - ✅ Dify retrieval completed in 17.64s, returned 0 results
+19-Jun-25 20:14:59 - ✅ Dify API response: 0 records returned
+19-Jun-25 20:14:59 - 📝 Dify API request: knowledge_id=codeqa-java-mall, query='test', top_k=20, threshold=0.0
+19-Jun-25 20:14:59 - 🔍 Dify API retrieval for query: 'test' (top_k=20, threshold=0.0)
+19-Jun-25 20:14:59 - 🔧 Enhanced query: 'test'
+19-Jun-25 20:15:02 - ✅ HYDE query generated
+19-Jun-25 20:15:13 - ✅ HYDE v2 query generated
+19-Jun-25 20:15:18 - ✅ Reranking applied
+19-Jun-25 20:15:22 - ✅ Dify retrieval completed in 22.98s, returned 20 results
+19-Jun-25 20:15:22 - ✅ Dify API response: 20 records returned
