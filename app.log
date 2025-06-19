@@ -465,3 +465,121 @@ class AuthService:
 19-Jun-25 20:15:18 - ✅ Reranking applied
 19-Jun-25 20:15:22 - ✅ Dify retrieval completed in 22.98s, returned 20 results
 19-Jun-25 20:15:22 - ✅ Dify API response: 20 records returned
+19-Jun-25 21:08:09 - 🚀 Initializing Fast Dify API...
+19-Jun-25 21:08:09 - ✅ Database tables loaded
+19-Jun-25 21:08:09 - ✅ Reranker set to lazy loading
+19-Jun-25 21:08:09 - ✅ OpenAI client initialized
+19-Jun-25 21:08:09 - ✅ Redis cache initialized
+19-Jun-25 21:08:09 - 🎉 Fast Dify API initialization completed
+19-Jun-25 21:08:54 - 📝 Fast API request: query='用户登录功能', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+19-Jun-25 21:08:54 - 🚀 Fast retrieval for query: '用户登录功能' (top_k=5, threshold=0.3)
+19-Jun-25 21:08:54 - 🔧 Enhanced query: '用户登录功能 user login'
+19-Jun-25 21:08:54 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:09:02 - ✅ Fast retrieval completed in 7.79s, returned 0 results
+19-Jun-25 21:09:02 - 💾 Result cached
+19-Jun-25 21:09:02 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:09:02 - 📝 Fast API request: query='商品管理', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+19-Jun-25 21:09:02 - 🚀 Fast retrieval for query: '商品管理' (top_k=5, threshold=0.3)
+19-Jun-25 21:09:02 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 21:09:02 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:09:05 - ✅ Fast retrieval completed in 3.00s, returned 0 results
+19-Jun-25 21:09:05 - 💾 Result cached
+19-Jun-25 21:09:05 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:09:05 - 📝 Fast API request: query='订单处理', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+19-Jun-25 21:09:05 - 🚀 Fast retrieval for query: '订单处理' (top_k=5, threshold=0.3)
+19-Jun-25 21:09:05 - 🔧 Enhanced query: '订单处理 order'
+19-Jun-25 21:09:05 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:09:08 - ✅ Fast retrieval completed in 3.44s, returned 0 results
+19-Jun-25 21:09:08 - 💾 Result cached
+19-Jun-25 21:09:08 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:09:08 - 📝 Fast API request: query='用户登录功能', top_k=5, threshold=0.3, hyde_v2=True, rerank=False
+19-Jun-25 21:09:08 - 🚀 Fast retrieval for query: '用户登录功能' (top_k=5, threshold=0.3)
+19-Jun-25 21:09:08 - 🔧 Enhanced query: '用户登录功能 user login'
+19-Jun-25 21:09:15 - ✅ HYDE query generated
+19-Jun-25 21:09:32 - ✅ HYDE v2 query generated
+19-Jun-25 21:09:38 - ✅ Fast retrieval completed in 29.60s, returned 0 results
+19-Jun-25 21:09:38 - 💾 Result cached
+19-Jun-25 21:09:38 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:09:38 - 📝 Fast API request: query='商品管理', top_k=5, threshold=0.3, hyde_v2=True, rerank=False
+19-Jun-25 21:09:38 - 🚀 Fast retrieval for query: '商品管理' (top_k=5, threshold=0.3)
+19-Jun-25 21:09:38 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 21:09:46 - ✅ HYDE query generated
+19-Jun-25 21:10:05 - ✅ HYDE v2 query generated
+19-Jun-25 21:10:12 - ✅ Fast retrieval completed in 34.25s, returned 0 results
+19-Jun-25 21:10:12 - 💾 Result cached
+19-Jun-25 21:10:12 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:10:12 - 📝 Fast API request: query='订单处理', top_k=5, threshold=0.3, hyde_v2=True, rerank=False
+19-Jun-25 21:10:12 - 🚀 Fast retrieval for query: '订单处理' (top_k=5, threshold=0.3)
+19-Jun-25 21:10:12 - 🔧 Enhanced query: '订单处理 order'
+19-Jun-25 21:10:17 - ✅ HYDE query generated
+19-Jun-25 21:10:30 - ✅ HYDE v2 query generated
+19-Jun-25 21:10:37 - ✅ Fast retrieval completed in 25.20s, returned 0 results
+19-Jun-25 21:10:37 - 💾 Result cached
+19-Jun-25 21:10:37 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:10:37 - 📝 Fast API request: query='用户登录功能', top_k=5, threshold=0.3, hyde_v2=True, rerank=True
+19-Jun-25 21:10:37 - 🚀 Fast retrieval for query: '用户登录功能' (top_k=5, threshold=0.3)
+19-Jun-25 21:10:37 - 🔧 Enhanced query: '用户登录功能 user login'
+19-Jun-25 21:10:43 - ✅ HYDE query generated
+19-Jun-25 21:10:58 - ✅ HYDE v2 query generated
+19-Jun-25 21:11:04 - 🔄 Loading reranker...
+19-Jun-25 21:11:09 - ✅ Reranking applied
+19-Jun-25 21:11:10 - ✅ Fast retrieval completed in 32.93s, returned 5 results
+19-Jun-25 21:11:10 - 💾 Result cached
+19-Jun-25 21:11:10 - ✅ Fast API response: 5 records returned
+19-Jun-25 21:11:10 - 📝 Fast API request: query='商品管理', top_k=5, threshold=0.3, hyde_v2=True, rerank=True
+19-Jun-25 21:11:10 - 🚀 Fast retrieval for query: '商品管理' (top_k=5, threshold=0.3)
+19-Jun-25 21:11:10 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 21:11:18 - ✅ HYDE query generated
+19-Jun-25 21:11:35 - ✅ HYDE v2 query generated
+19-Jun-25 21:11:42 - ✅ Reranking applied
+19-Jun-25 21:11:43 - ✅ Fast retrieval completed in 32.89s, returned 5 results
+19-Jun-25 21:11:43 - 💾 Result cached
+19-Jun-25 21:11:43 - ✅ Fast API response: 5 records returned
+19-Jun-25 21:11:43 - 📝 Fast API request: query='订单处理', top_k=5, threshold=0.3, hyde_v2=True, rerank=True
+19-Jun-25 21:11:43 - 🚀 Fast retrieval for query: '订单处理' (top_k=5, threshold=0.3)
+19-Jun-25 21:11:43 - 🔧 Enhanced query: '订单处理 order'
+19-Jun-25 21:11:49 - ✅ HYDE query generated
+19-Jun-25 21:12:01 - ✅ HYDE v2 query generated
+19-Jun-25 21:12:08 - ✅ Reranking applied
+19-Jun-25 21:12:10 - ✅ Fast retrieval completed in 26.21s, returned 5 results
+19-Jun-25 21:12:10 - 💾 Result cached
+19-Jun-25 21:12:10 - ✅ Fast API response: 5 records returned
+19-Jun-25 21:13:01 - 📝 Fast API request: query='用户登录功能', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+19-Jun-25 21:13:01 - 🚀 Fast retrieval for query: '用户登录功能' (top_k=5, threshold=0.3)
+19-Jun-25 21:13:01 - 🎯 Cache hit!
+19-Jun-25 21:13:01 - 🔧 Enhanced query: '用户登录功能 user login'
+19-Jun-25 21:13:01 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:13:08 - ✅ Fast retrieval completed in 7.12s, returned 0 results
+19-Jun-25 21:13:08 - 💾 Result cached
+19-Jun-25 21:13:08 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:13:08 - 📝 Fast API request: query='用户登录功能', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+19-Jun-25 21:13:08 - 🚀 Fast retrieval for query: '用户登录功能' (top_k=5, threshold=0.3)
+19-Jun-25 21:13:08 - 🎯 Cache hit!
+19-Jun-25 21:13:08 - 🔧 Enhanced query: '用户登录功能 user login'
+19-Jun-25 21:13:08 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:13:12 - ✅ Fast retrieval completed in 3.55s, returned 0 results
+19-Jun-25 21:13:12 - 💾 Result cached
+19-Jun-25 21:13:12 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:13:12 - 📝 Fast API request: query='商品管理', top_k=3, threshold=0.2, hyde_v2=False, rerank=False
+19-Jun-25 21:13:12 - 🚀 Fast retrieval for query: '商品管理' (top_k=3, threshold=0.2)
+19-Jun-25 21:13:12 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 21:13:12 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:13:15 - ✅ Fast retrieval completed in 2.98s, returned 0 results
+19-Jun-25 21:13:15 - 💾 Result cached
+19-Jun-25 21:13:15 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:13:15 - 📝 Fast API request: query='商品管理', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+19-Jun-25 21:13:15 - 🚀 Fast retrieval for query: '商品管理' (top_k=5, threshold=0.3)
+19-Jun-25 21:13:15 - 🎯 Cache hit!
+19-Jun-25 21:13:15 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 21:13:15 - ⚡ Using direct search (no HYDE)
+19-Jun-25 21:13:18 - ✅ Fast retrieval completed in 2.92s, returned 0 results
+19-Jun-25 21:13:18 - 💾 Result cached
+19-Jun-25 21:13:18 - ✅ Fast API response: 0 records returned
+19-Jun-25 21:13:18 - 📝 Fast API request: query='商品管理', top_k=5, threshold=0.4, hyde_v2=True, rerank=False
+19-Jun-25 21:13:18 - 🚀 Fast retrieval for query: '商品管理' (top_k=5, threshold=0.4)
+19-Jun-25 21:13:18 - 🔧 Enhanced query: '商品管理 goods product management manager'
+19-Jun-25 21:13:27 - ✅ HYDE query generated
+19-Jun-25 21:13:39 - ✅ HYDE v2 query generated
+19-Jun-25 21:13:45 - ✅ Fast retrieval completed in 27.59s, returned 0 results
+19-Jun-25 21:13:45 - 💾 Result cached
+19-Jun-25 21:13:45 - ✅ Fast API response: 0 records returned
