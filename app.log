@@ -583,3 +583,177 @@ class AuthService:
 19-Jun-25 21:13:45 - ✅ Fast retrieval completed in 27.59s, returned 0 results
 19-Jun-25 21:13:45 - 💾 Result cached
 19-Jun-25 21:13:45 - ✅ Fast API response: 0 records returned
+20-Jun-25 11:11:39 - 🚀 Initializing Simplified Optimized Dify API...
+20-Jun-25 11:11:39 - ✅ Database tables loaded
+20-Jun-25 11:11:39 - ✅ Thread pool initialized
+20-Jun-25 11:11:39 - ✅ Reranker set to lazy loading
+20-Jun-25 11:11:39 - ✅ Optimized OpenAI client initialized
+20-Jun-25 11:11:39 - ✅ Redis cache initialized
+20-Jun-25 11:11:39 - 🎉 Simplified Optimized API initialization completed
+20-Jun-25 11:12:25 - 📝 Fast API request: query='用户登录功能', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+20-Jun-25 11:12:25 - 🚀 Fast retrieval for query: '用户登录功能' (top_k=5, threshold=0.3)
+20-Jun-25 11:12:25 - 🔧 Enhanced query: '用户登录功能 user login'
+20-Jun-25 11:12:25 - ⚡ Using direct search (no HYDE)
+20-Jun-25 11:12:30 - ✅ Fast retrieval completed in 4.83s, returned 0 results
+20-Jun-25 11:12:30 - 💾 Result cached
+20-Jun-25 11:12:30 - ✅ Fast API response: 0 records returned
+20-Jun-25 11:12:30 - 📝 Fast API request: query='商品管理', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+20-Jun-25 11:12:30 - 🚀 Fast retrieval for query: '商品管理' (top_k=5, threshold=0.3)
+20-Jun-25 11:12:30 - 🔧 Enhanced query: '商品管理 goods product management manager'
+20-Jun-25 11:12:30 - ⚡ Using direct search (no HYDE)
+20-Jun-25 11:12:32 - ✅ Fast retrieval completed in 1.72s, returned 0 results
+20-Jun-25 11:12:32 - 💾 Result cached
+20-Jun-25 11:12:32 - ✅ Fast API response: 0 records returned
+20-Jun-25 11:12:32 - 📝 Fast API request: query='订单处理', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+20-Jun-25 11:12:32 - 🚀 Fast retrieval for query: '订单处理' (top_k=5, threshold=0.3)
+20-Jun-25 11:12:32 - 🔧 Enhanced query: '订单处理 order'
+20-Jun-25 11:12:32 - ⚡ Using direct search (no HYDE)
+20-Jun-25 11:12:34 - ✅ Fast retrieval completed in 1.76s, returned 0 results
+20-Jun-25 11:12:34 - 💾 Result cached
+20-Jun-25 11:12:34 - ✅ Fast API response: 0 records returned
+20-Jun-25 11:12:34 - 📝 Fast API request: query='支付功能', top_k=5, threshold=0.3, hyde_v2=False, rerank=False
+20-Jun-25 11:12:34 - 🚀 Fast retrieval for query: '支付功能' (top_k=5, threshold=0.3)
+20-Jun-25 11:12:34 - 🔧 Enhanced query: '支付功能 payment pay'
+20-Jun-25 11:12:34 - ⚡ Using direct search (no HYDE)
+20-Jun-25 11:12:36 - ✅ Fast retrieval completed in 1.89s, returned 0 results
+20-Jun-25 11:12:36 - 💾 Result cached
+20-Jun-25 11:12:36 - ✅ Fast API response: 0 records returned
+20-Jun-25 11:12:36 - 📝 Request: query='用户登录功能', mode=fast
+20-Jun-25 11:12:36 - 🚀 Deep optimized retrieval: '用户登录功能' (mode=fast)
+20-Jun-25 11:12:36 - 🔧 Enhanced query: '用户登录功能 user login'
+20-Jun-25 11:12:38 - ✅ Optimized HYDE completed in 2.53s
+20-Jun-25 11:12:43 - 📊 Initial search: 10 methods, 10 classes
+20-Jun-25 11:12:45 - ✅ Optimized HYDE-v2 completed in 1.64s
+20-Jun-25 11:12:46 - 🔄 Loading reranker...
+20-Jun-25 11:12:50 - ✅ Optimized reranking completed in 3.56s
+20-Jun-25 11:12:52 - ✅ Deep optimized retrieval completed in 16.59s
+20-Jun-25 11:12:52 -    HYDE: 2.53s, HYDE-v2: 1.64s, Rerank: 3.56s
+20-Jun-25 11:12:52 -    Returned 5 results
+20-Jun-25 11:12:52 - 💾 Results cached
+20-Jun-25 11:12:52 - 📝 Request: query='商品管理', mode=fast
+20-Jun-25 11:12:52 - 🚀 Deep optimized retrieval: '商品管理' (mode=fast)
+20-Jun-25 11:12:52 - 🔧 Enhanced query: '商品管理 goods product management manager'
+20-Jun-25 11:12:56 - ✅ Optimized HYDE completed in 3.19s
+20-Jun-25 11:13:00 - 📊 Initial search: 10 methods, 10 classes
+20-Jun-25 11:13:01 - ✅ Optimized HYDE-v2 completed in 0.96s
+20-Jun-25 11:13:02 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:13:03 - ✅ Deep optimized retrieval completed in 10.63s
+20-Jun-25 11:13:03 -    HYDE: 3.19s, HYDE-v2: 0.96s, Rerank: 0.00s
+20-Jun-25 11:13:03 -    Returned 5 results
+20-Jun-25 11:13:03 - 💾 Results cached
+20-Jun-25 11:13:03 - 📝 Request: query='订单处理', mode=fast
+20-Jun-25 11:13:03 - 🚀 Deep optimized retrieval: '订单处理' (mode=fast)
+20-Jun-25 11:13:03 - 🔧 Enhanced query: '订单处理 order'
+20-Jun-25 11:13:06 - ✅ Optimized HYDE completed in 2.69s
+20-Jun-25 11:13:08 - 📊 Initial search: 10 methods, 10 classes
+20-Jun-25 11:13:09 - ✅ Optimized HYDE-v2 completed in 1.51s
+20-Jun-25 11:13:11 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:13:12 - ✅ Deep optimized retrieval completed in 8.68s
+20-Jun-25 11:13:12 -    HYDE: 2.69s, HYDE-v2: 1.51s, Rerank: 0.00s
+20-Jun-25 11:13:12 -    Returned 5 results
+20-Jun-25 11:13:12 - 💾 Results cached
+20-Jun-25 11:13:12 - 📝 Request: query='支付功能', mode=fast
+20-Jun-25 11:13:12 - 🚀 Deep optimized retrieval: '支付功能' (mode=fast)
+20-Jun-25 11:13:12 - 🔧 Enhanced query: '支付功能 payment pay'
+20-Jun-25 11:13:13 - ✅ Optimized HYDE completed in 0.99s
+20-Jun-25 11:13:15 - 📊 Initial search: 10 methods, 10 classes
+20-Jun-25 11:13:16 - ✅ Optimized HYDE-v2 completed in 1.32s
+20-Jun-25 11:13:18 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:13:19 - ✅ Deep optimized retrieval completed in 6.98s
+20-Jun-25 11:13:19 -    HYDE: 0.99s, HYDE-v2: 1.32s, Rerank: 0.00s
+20-Jun-25 11:13:19 -    Returned 5 results
+20-Jun-25 11:13:19 - 💾 Results cached
+20-Jun-25 11:13:19 - 📝 Request: query='用户登录功能', mode=balanced
+20-Jun-25 11:13:19 - 🚀 Deep optimized retrieval: '用户登录功能' (mode=balanced)
+20-Jun-25 11:13:19 - 🔧 Enhanced query: '用户登录功能 user login'
+20-Jun-25 11:13:23 - ✅ Optimized HYDE completed in 4.46s
+20-Jun-25 11:13:28 - 📊 Initial search: 15 methods, 15 classes
+20-Jun-25 11:13:30 - ✅ Optimized HYDE-v2 completed in 2.30s
+20-Jun-25 11:13:32 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:13:33 - ✅ Deep optimized retrieval completed in 14.53s
+20-Jun-25 11:13:33 -    HYDE: 4.46s, HYDE-v2: 2.30s, Rerank: 0.00s
+20-Jun-25 11:13:33 -    Returned 5 results
+20-Jun-25 11:13:33 - 💾 Results cached
+20-Jun-25 11:13:33 - 📝 Request: query='商品管理', mode=balanced
+20-Jun-25 11:13:33 - 🚀 Deep optimized retrieval: '商品管理' (mode=balanced)
+20-Jun-25 11:13:33 - 🔧 Enhanced query: '商品管理 goods product management manager'
+20-Jun-25 11:13:38 - ✅ Optimized HYDE completed in 4.39s
+20-Jun-25 11:13:43 - 📊 Initial search: 15 methods, 15 classes
+20-Jun-25 11:13:46 - ✅ Optimized HYDE-v2 completed in 2.95s
+20-Jun-25 11:13:50 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:13:51 - ✅ Deep optimized retrieval completed in 18.11s
+20-Jun-25 11:13:51 -    HYDE: 4.39s, HYDE-v2: 2.95s, Rerank: 0.00s
+20-Jun-25 11:13:51 -    Returned 5 results
+20-Jun-25 11:13:52 - 💾 Results cached
+20-Jun-25 11:13:52 - 📝 Request: query='订单处理', mode=balanced
+20-Jun-25 11:13:52 - 🚀 Deep optimized retrieval: '订单处理' (mode=balanced)
+20-Jun-25 11:13:52 - 🔧 Enhanced query: '订单处理 order'
+20-Jun-25 11:13:57 - ✅ Optimized HYDE completed in 4.97s
+20-Jun-25 11:14:01 - 📊 Initial search: 15 methods, 15 classes
+20-Jun-25 11:14:03 - ✅ Optimized HYDE-v2 completed in 2.13s
+20-Jun-25 11:14:05 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:14:06 - ✅ Deep optimized retrieval completed in 14.90s
+20-Jun-25 11:14:06 -    HYDE: 4.97s, HYDE-v2: 2.13s, Rerank: 0.00s
+20-Jun-25 11:14:06 -    Returned 5 results
+20-Jun-25 11:14:07 - 💾 Results cached
+20-Jun-25 11:14:07 - 📝 Request: query='支付功能', mode=balanced
+20-Jun-25 11:14:07 - 🚀 Deep optimized retrieval: '支付功能' (mode=balanced)
+20-Jun-25 11:14:07 - 🔧 Enhanced query: '支付功能 payment pay'
+20-Jun-25 11:14:12 - ✅ Optimized HYDE completed in 5.64s
+20-Jun-25 11:14:17 - 📊 Initial search: 15 methods, 15 classes
+20-Jun-25 11:14:19 - ✅ Optimized HYDE-v2 completed in 1.95s
+20-Jun-25 11:14:20 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:14:22 - ✅ Deep optimized retrieval completed in 15.29s
+20-Jun-25 11:14:22 -    HYDE: 5.64s, HYDE-v2: 1.95s, Rerank: 0.00s
+20-Jun-25 11:14:22 -    Returned 5 results
+20-Jun-25 11:14:22 - 💾 Results cached
+20-Jun-25 11:14:22 - 📝 Request: query='用户登录功能', mode=quality
+20-Jun-25 11:14:22 - 🚀 Deep optimized retrieval: '用户登录功能' (mode=quality)
+20-Jun-25 11:14:22 - 🔧 Enhanced query: '用户登录功能 user login'
+20-Jun-25 11:14:27 - ✅ Optimized HYDE completed in 4.67s
+20-Jun-25 11:14:31 - 📊 Initial search: 20 methods, 20 classes
+20-Jun-25 11:14:34 - ✅ Optimized HYDE-v2 completed in 2.86s
+20-Jun-25 11:14:37 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:14:39 - ✅ Deep optimized retrieval completed in 17.24s
+20-Jun-25 11:14:39 -    HYDE: 4.67s, HYDE-v2: 2.86s, Rerank: 0.00s
+20-Jun-25 11:14:39 -    Returned 5 results
+20-Jun-25 11:14:39 - 💾 Results cached
+20-Jun-25 11:14:39 - 📝 Request: query='商品管理', mode=quality
+20-Jun-25 11:14:39 - 🚀 Deep optimized retrieval: '商品管理' (mode=quality)
+20-Jun-25 11:14:39 - 🔧 Enhanced query: '商品管理 goods product management manager'
+20-Jun-25 11:14:46 - ✅ Optimized HYDE completed in 6.42s
+20-Jun-25 11:14:51 - 📊 Initial search: 20 methods, 20 classes
+20-Jun-25 11:14:56 - ✅ Optimized HYDE-v2 completed in 5.19s
+20-Jun-25 11:15:00 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:15:02 - ✅ Deep optimized retrieval completed in 23.13s
+20-Jun-25 11:15:02 -    HYDE: 6.42s, HYDE-v2: 5.19s, Rerank: 0.00s
+20-Jun-25 11:15:02 -    Returned 5 results
+20-Jun-25 11:15:02 - 💾 Results cached
+20-Jun-25 11:15:02 - 📝 Request: query='订单处理', mode=quality
+20-Jun-25 11:15:02 - 🚀 Deep optimized retrieval: '订单处理' (mode=quality)
+20-Jun-25 11:15:02 - 🔧 Enhanced query: '订单处理 order'
+20-Jun-25 11:15:10 - ✅ Optimized HYDE completed in 7.32s
+20-Jun-25 11:15:14 - 📊 Initial search: 20 methods, 20 classes
+20-Jun-25 11:15:18 - ✅ Optimized HYDE-v2 completed in 3.86s
+20-Jun-25 11:15:22 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:15:24 - ✅ Deep optimized retrieval completed in 21.90s
+20-Jun-25 11:15:24 -    HYDE: 7.32s, HYDE-v2: 3.86s, Rerank: 0.00s
+20-Jun-25 11:15:24 -    Returned 5 results
+20-Jun-25 11:15:24 - 💾 Results cached
+20-Jun-25 11:15:24 - 📝 Request: query='支付功能', mode=quality
+20-Jun-25 11:15:24 - 🚀 Deep optimized retrieval: '支付功能' (mode=quality)
+20-Jun-25 11:15:24 - 🔧 Enhanced query: '支付功能 payment pay'
+20-Jun-25 11:15:30 - ✅ Optimized HYDE completed in 5.75s
+20-Jun-25 11:15:36 - 📊 Initial search: 20 methods, 20 classes
+20-Jun-25 11:15:40 - ✅ Optimized HYDE-v2 completed in 4.94s
+20-Jun-25 11:15:45 - ✅ Optimized reranking completed in 0.00s
+20-Jun-25 11:15:47 - ✅ Deep optimized retrieval completed in 22.49s
+20-Jun-25 11:15:47 -    HYDE: 5.75s, HYDE-v2: 4.94s, Rerank: 0.00s
+20-Jun-25 11:15:47 -    Returned 5 results
+20-Jun-25 11:15:47 - 💾 Results cached
+20-Jun-25 11:15:47 - 📝 Request: query='用户登录功能', mode=balanced
+20-Jun-25 11:15:47 - 🚀 Deep optimized retrieval: '用户登录功能' (mode=balanced)
+20-Jun-25 11:15:47 - 🎯 Cache hit! Returned in 0.02s
+20-Jun-25 11:15:47 - 📝 Request: query='用户登录功能', mode=balanced
+20-Jun-25 11:15:47 - 🚀 Deep optimized retrieval: '用户登录功能' (mode=balanced)
+20-Jun-25 11:15:47 - 🎯 Cache hit! Returned in 0.03s
