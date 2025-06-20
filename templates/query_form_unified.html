@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQA - Unified Retrieval Interface</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .query-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .options-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .performance-mode {
+            flex: 1;
+            min-width: 200px;
+        }
+        .mode-info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .response {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .response h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .response pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            border-left: 4px solid #667eea;
+        }
+        .performance-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .badge-fast { background: #e8f5e8; color: #2d5a2d; }
+        .badge-balanced { background: #fff3cd; color: #856404; }
+        .badge-quality { background: #d1ecf1; color: #0c5460; }
+        .query-meta {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 CodeQA Unified Interface</h1>
+        <p>Powered by Unified Retrieval Engine with Optimized Performance</p>
+    </div>
+
+    <div class="query-container">
+        <form id="queryForm">
+            <div class="form-group">
+                <label for="query">Enter your code query (use @codebase to search):</label>
+                <input type="text" id="query" name="query" 
+                       placeholder="@codebase 用户登录功能" 
+                       required>
+            </div>
+            
+            <div class="options-row">
+                <div class="performance-mode">
+                    <label for="performance_mode">Performance Mode:</label>
+                    <select id="performance_mode" name="performance_mode">
+                        <option value="fast">⚡ Fast Mode (6-8s)</option>
+                        <option value="balanced" selected>⚖️ Balanced Mode (8-12s)</option>
+                        <option value="quality">🎯 Quality Mode (10-15s)</option>
+                    </select>
+                    <div class="mode-info" id="mode-info">
+                        Optimal balance of speed and quality
+                    </div>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="rerank" name="rerank" checked>
+                    <label for="rerank">Enable ColBERT Reranking</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <button type="submit" id="submitBtn">🔍 Search Codebase</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Processing your query with unified retrieval engine...</p>
+        <p id="loadingMode"></p>
+    </div>
+
+    <div id="responses">
+        {% if results and results.responses %}
+            {% for response in results.responses %}
+                <div class="response">
+                    <h3>
+                        Query: {{ response.query }}
+                        {% if response.performance_mode %}
+                            <span class="performance-badge badge-{{ response.performance_mode }}">
+                                {{ response.performance_mode.upper() }}
+                            </span>
+                        {% endif %}
+                    </h3>
+                    <pre>{{ response.response }}</pre>
+                    {% if response.performance_mode or response.rerank_enabled is defined %}
+                        <div class="query-meta">
+                            {% if response.performance_mode %}
+                                Performance Mode: {{ response.performance_mode }} | 
+                            {% endif %}
+                            {% if response.rerank_enabled is defined %}
+                                Reranking: {{ 'Enabled' if response.rerank_enabled else 'Disabled' }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <script>
+        // Performance mode descriptions
+        const modeDescriptions = {
+            'fast': 'Optimized for speed - 6-8s response time with good quality',
+            'balanced': 'Optimal balance of speed and quality - 8-12s response time',
+            'quality': 'Maximum quality with full features - 10-15s response time'
+        };
+
+        // Update mode description
+        document.getElementById('performance_mode').addEventListener('change', function() {
+            const mode = this.value;
+            document.getElementById('mode-info').textContent = modeDescriptions[mode];
+        });
+
+        // Form submission
+        document.getElementById('queryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const query = document.getElementById('query').value;
+            const performanceMode = document.getElementById('performance_mode').value;
+            const rerank = document.getElementById('rerank').checked;
+            
+            if (!query.trim()) {
+                alert('Please enter a query');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('loadingMode').textContent = `Using ${performanceMode} mode...`;
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').textContent = 'Processing...';
+
+            // Send AJAX request
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({
+                    query: query,
+                    performance_mode: performanceMode,
+                    rerank: rerank
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('submitBtn').textContent = '🔍 Search Codebase';
+
+                // Create response element
+                const responseDiv = document.createElement('div');
+                responseDiv.className = 'response';
+                
+                const isError = data.response && data.response.includes('Error:');
+                
+                responseDiv.innerHTML = `
+                    <h3>
+                        Query: ${query}
+                        <span class="performance-badge badge-${performanceMode}">
+                            ${performanceMode.toUpperCase()}
+                        </span>
+                    </h3>
+                    <pre class="${isError ? 'error' : ''}">${data.response}</pre>
+                    <div class="query-meta">
+                        Performance Mode: ${performanceMode} | 
+                        Reranking: ${rerank ? 'Enabled' : 'Disabled'} |
+                        Backend: Unified Retrieval Engine
+                    </div>
+                `;
+
+                // Add to top of responses
+                const responsesDiv = document.getElementById('responses');
+                responsesDiv.insertBefore(responseDiv, responsesDiv.firstChild);
+
+                // Clear form
+                document.getElementById('query').value = '';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Hide loading
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('submitBtn').textContent = '🔍 Search Codebase';
+
+                // Show error
+                const responseDiv = document.createElement('div');
+                responseDiv.className = 'response';
+                responseDiv.innerHTML = `
+                    <h3>Error</h3>
+                    <pre class="error">Network error: ${error.message}</pre>
+                `;
+                
+                const responsesDiv = document.getElementById('responses');
+                responsesDiv.insertBefore(responseDiv, responsesDiv.firstChild);
+            });
+        });
+
+        // Auto-focus on query input
+        document.getElementById('query').focus();
+    </script>
+</body>
+</html>
